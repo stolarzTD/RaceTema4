@@ -421,6 +421,16 @@ La columna `grade` es la calificación y las dos siguientes el número de estudi
 ¿ Cuáles son las variables ?. Transfórmalo en un conjunto `tidy` con las variables, `grade, sex y count`
 ```{r}
 
+library(tidyr)
+library(dplyr)
+
+students_tidy <- students %>%
+  pivot_longer(
+    cols = -grade, 
+    names_to = "sex", 
+    values_to = "count",
+    names_prefix = "male|female"
+  )
 
 
 ```
