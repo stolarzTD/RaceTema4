@@ -466,7 +466,8 @@ students3_tidy <- students3 %>%
 ```{r}
 
 
-
+students3_tidy <- students3_tidy %>%
+  mutate(class = readr::parse_number(class))
 
 
 
