@@ -547,6 +547,13 @@ ggplot(sat_grouped, aes(x = total, y = prop, fill = sex)) +
 ```{r}
 
 
+library(lubridate)
+
+this_day <- today()
+year(this_day)
+month(this_day)
+day(this_day)
+wday(this_day, label = TRUE)
 
 
 
