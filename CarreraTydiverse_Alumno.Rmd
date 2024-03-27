@@ -321,6 +321,11 @@ top_unique_sorted <- cran %>%
 
 ```{r}
 
+top_unique_sorted <- cran %>%
+  group_by(package) %>%
+  summarise(unique = n_distinct(ip_id)) %>%
+  filter(unique > quantile(unique, probs = 0.99)) %>%
+  arrange(desc(unique))
 
 
 ```
