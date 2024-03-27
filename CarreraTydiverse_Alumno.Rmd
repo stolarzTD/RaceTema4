@@ -299,11 +299,8 @@ top_counts <- cran %>%
 ```{r}
 
 
-
-
-
-
-
+top_counts_sorted <- top_counts %>%
+  arrange(desc(count))
 
 
 ```
