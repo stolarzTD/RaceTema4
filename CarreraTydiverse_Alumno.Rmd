@@ -365,7 +365,19 @@ cran %>%
 
 ```{r}
 
+library(ggplot2)
 
+cran %>%
+  group_by(country) %>%
+  summarise(total_size = sum(size)) %>%
+  filter(total_size > quantile(total_size, probs = 0.9)) %>%
+  arrange(desc(total_size)) %>%
+  ggplot(aes(x = reorder(country, total_size), y = total_size)) +
+  geom_point() +
+  xlab("Country") +
+  ylab("Total Size of Downloads") +
+  ggtitle("Top Countries by Download Size") +
+  theme_minimal()
 
 
 ```
