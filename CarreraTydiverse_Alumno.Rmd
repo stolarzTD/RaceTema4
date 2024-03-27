@@ -620,7 +620,16 @@ this_moment <- update(this_moment, hours = 8, minutes = 34, seconds = 55)
   
 ```{r}
 
+nyc <- with_tz(now(), "America/New_York")
+salida <- nyc + days(2)
+salida <- update(salida, hour = 17, minute = 34)
 
+arrival_ny <- salida + hours(15) + minutes(50)
+
+arrival_hk <- with_tz(arrival_ny, "Asia/Hong_Kong")
+
+last_time_sg <- with_tz(ymd("2008-06-17"), "Asia/Singapore")
+time_since_last <- as.period(interval(last_time_sg, arrival_hk))
 
 ```
   
