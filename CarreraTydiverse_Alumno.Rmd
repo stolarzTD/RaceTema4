@@ -532,6 +532,9 @@ sat_grouped <- sat_tidy %>%
 ```{r}
 
 
+ggplot(sat_grouped, aes(x = total, y = prop, fill = sex)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~part)
 
 
 
