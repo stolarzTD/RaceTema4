@@ -565,6 +565,10 @@ y muéstralo por pantalla. Usa las funciónes `hour, minute, second` para extrae
 ```{r}
 
 
+this_moment <- now()
+hour(this_moment)
+minute(this_moment)
+second(this_moment)
 
 
 
