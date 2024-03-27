@@ -502,6 +502,13 @@ Considera los datos almacenado en `sat` y haz las transformaciones adecuadas par
 ```{r}
 
 
+sat_tidy <- sat %>%
+  pivot_longer(
+    cols = -score_range,
+    names_to = c("part", "sex"),
+    names_pattern = "(.*)_(.*)",
+    values_to = "count"
+  )
 
 
 
