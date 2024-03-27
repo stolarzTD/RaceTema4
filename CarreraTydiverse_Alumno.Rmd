@@ -487,6 +487,10 @@ gradebook <- students4 %>%
 34. Consideremos el caso de una observación almacenada en varias tablas. Observa los datos almacenados en `failed` y `passed` con la información de los alumnos que suspeden (calificaciones C,D,E,F) y los que aprueban (calificaciones A, B). Debes unir ambos conjuntos en uno que contenga una columna adicional llamada `status` que indicará `passed` o `failed` según la situación de cada alumno, puedes usar la función `bind_rows`.
 ```{r}
 
+combined <- bind_rows(
+  failed %>% mutate(status = "failed"),
+  passed %>% mutate(status = "passed")
+)
 
 
 ```
@@ -510,21 +514,9 @@ Considera los datos almacenado en `sat` y haz las transformaciones adecuadas par
 
 
 
-
-
-
-
-
 ```
 37. Representa gráficamente el conjunto obtenido para mostrar las diferencias entre hombres y mujeres, en las diferentes pruebas para cada una de las franjas de calificación.
 ```{r}
-
-
-
-
-
-
-
 
 
 
@@ -595,12 +587,6 @@ ymd(fecha)
   Cuando consideramos zonas horarias, peridos que incluyen años bisiestos, etc. El manejo de fecha requiere de librerías como __lubridate__ para facilitar estas tareas.
   
 ```{r}
-
-
-
-
-
-
 
 
 
