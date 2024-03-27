@@ -251,7 +251,13 @@ by_package <- cran %>%
 
 20. Usa la función `summarise` sobre  el elemento agrupado y calcula  el valor medio de la variable `size`. Observa el efecto del agrupamiento en el resultado.
 ```{r}
-
+by_package %>%
+  summarise(
+    count = n(),
+    unique = n_distinct(ip_id),
+    countries = n_distinct(country),
+    avg_bytes = mean(size)
+  )
 ```
 21. Para el agrupamiento creado calcula: 
 + . count = n()
