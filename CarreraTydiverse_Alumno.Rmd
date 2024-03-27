@@ -301,6 +301,10 @@ la mediana (función `stats::median`) de la variable `size` y almacénalos en la
 ```{r}
 
 
+top_counts <- cran %>%
+  group_by(package) %>%
+  summarise(count = n()) %>%
+  filter(count > quantile(count, probs = 0.99))
 
 
 
